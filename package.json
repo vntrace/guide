@@ -6,9 +6,12 @@
     "type": "git",
     "url": "https://github.com/vntrace/guide.git"
   }
+  , "scripts": {
+      "start": "node app"
+  }
   , "dependencies": {
       "express": "4.2.0"
-    , "ejs": "~1.0.0"
+    , "express-hbs": "0.7.9"
     , "redis": "0.10.2"
     , "mongoose": "3.8.9"
     , "when": "3.2.0"

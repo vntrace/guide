@@ -4,10 +4,19 @@ var favicon = require('static-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var hbs = require('express-hbs');
 
 module.exports = function(app, config) {
+	app.locals.title = 'Guide App';
+
+	app.engine('hbs', hbs.express3({
+	  	partialsDir: path.join(config.root, 'views', 'partials'),
+	  	layoutsDir: path.join(config.root, 'views', 'layout'),
+	}));
+
+	app.set('view engine', 'hbs');
 	app.set('views', path.join(config.root, 'views'));
-	app.set('view engine', 'ejs');
+
 	app.set('view cache', false);
   	app.use(favicon());
   	app.use(bodyParser.json());
