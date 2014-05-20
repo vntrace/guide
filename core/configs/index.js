@@ -1,4 +1,5 @@
 module.exports = {
 	router: require('./router'),
-	express: require('./express')
+	express: require('./express'),
+	passport: require('./passport')
 }

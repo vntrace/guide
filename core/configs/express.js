@@ -5,9 +5,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var hbs = require('express-hbs');
+var session = require('express-session');
+var redis = require('redis');
+var RedisStore = require('connect-redis')(session);
+var flash = require('connect-flash');
 
 module.exports = function(app, config) {
 	app.locals.title = 'Guide App';
+	app.locals.prod_env = 'prod' === config.env;
+	app.locals.static_path = config.static_path;
 
 	app.engine('hbs', hbs.express3({
 	  	partialsDir: path.join(config.root, 'views', 'partials'),
@@ -21,9 +27,22 @@ module.exports = function(app, config) {
   	app.use(favicon());
   	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded());
-	app.use(cookieParser());
+	app.use(cookieParser('thegioilienminh'));
+	app.use(session({ 
+		store: new RedisStore({
+			host: config.redis.host,
+			port: config.redis.port
+		}), 
+		secret: 'thegioilienminh', 
+		cookie : {
+            maxAge: 1000*60*60*24*1000
+        } 
+    }));
+
+    app.use(flash());
 	app.use(logger('dev'));
   	app.use(express.static(path.join(config.root, 'public')));
+  	app.use('/static', express.static(path.join(config.root, 'static')));
 
 	app.use(function(req, res, next) {
 	    res.removeHeader("X-Powered-By");

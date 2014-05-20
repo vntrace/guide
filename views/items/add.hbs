@@ -1,0 +1,54 @@
+{{!< default}}
+
+{{> header}}
+
+{{> sidebar}}
+
+<div class="main-container">
+	<div class="container-fluid">
+		<section>
+			<div class="row-fluid">
+				<div class="span12">
+					<form class="form-horizontal" onsubmit="return false;">
+						<fieldset>
+							<legend>Thêm trang bị mới</legend>
+							<div class="control-group">
+								<label class="control-label">Tên trang bị</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" name="name">
+									<p class="help-block">Tối đa 50 ký tự</p>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label">Tổng giá</label>
+								<div class="controls">
+									<input type="text" class="input-small" name="total_price">
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label">Giá công thức</label>
+								<div class="controls">
+									<input type="text" class="input-small" name="recipe_price">
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label">Mô tả</label>
+								<div class="controls">
+									<textarea id="description" class="editor" name="description"></textarea>
+								</div>
+							</div>
+
+				          	<div class="form-actions">
+					            <button type="submit" class="btn btn-primary">Save changes</button>
+					            <button class="btn">Cancel</button>
+				          	</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>

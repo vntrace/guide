@@ -1,6 +1,7 @@
-var when = require('when'),
-	config = require('./configs'),
-	express = require('express');
+var when = require('when')
+  , config = require('./configs')
+  , express = require('express')
+  , auth = require('./auth');
 
 var BEGuide = function(root) {
 	this.root = root;
@@ -27,8 +28,12 @@ BEGuide.prototype.loadConfig = function(dictionary, env) {
 
 BEGuide.prototype.start = function() {
 	var app = express();
+		app.set('auth', auth);
+		
 	// Config express
 	config.express(app, this.config);
+	// Config passport
+	config.passport(app, this.config);
 	// Config router
 	config.router(app, this.config);
 

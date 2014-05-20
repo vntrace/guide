@@ -1,0 +1,36 @@
+ul.lol-db,
+ul.lol-db li {
+	list-style: none;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.lol-db li {
+	float: left;
+	width: 70px;
+	border: 1px solid #CCC;
+	padding: 5px;
+	margin-right: 5px;
+  	transition: border-color 0.5s ease;
+}
+
+ul.lol-db li:last {
+	margin-right: 0;
+}
+
+ul.lol-db li:hover {
+	border-color: #0088cc;
+}
+
+ul.lol-db li a {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+}
+
+ul.lol-db li a span.item-name {
+	height: 30px;
+	display: inline-block;
+	overflow: hidden;
+}
