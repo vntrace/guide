@@ -15,4 +15,6 @@ module.exports = function(app, config) {
 	app.get('/items', auth.requireLogin, routers.items);
 
 	app.get('/items/add', auth.requireLogin, routers.add_item);
+
+	app.post('/items/add', auth.requireLogin, routers.add_item);
 };
