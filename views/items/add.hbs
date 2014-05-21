@@ -74,7 +74,9 @@
 {{#contentFor "customScript"}}
 <script type="text/javascript">
 	$(document).ready(function(){
-		
+		$('#item_thumb').fileupload({
+			url: '/upload'
+		});
 	});
 </script>
 {{/contentFor}}
