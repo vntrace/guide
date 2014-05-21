@@ -34,3 +34,7 @@ ul.lol-db li a span.item-name {
 	display: inline-block;
 	overflow: hidden;
 }
+
+.editor {
+	width: 50%;
+}

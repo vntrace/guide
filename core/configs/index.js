@@ -1,5 +1,6 @@
 module.exports = {
 	router: require('./router'),
 	express: require('./express'),
-	passport: require('./passport')
+	passport: require('./passport'),
+	database: require('./database')
 }

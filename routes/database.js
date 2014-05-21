@@ -1,11 +1,26 @@
-var passport = require('passport');
+var passport = require('passport')
+  , mongoose = require('mongoose')
+  , errorHelper = require('mongoose-error-helper').errorHelper;
 
 var routers = {
 	items: function(req, res, next) {
 		res.render('items/list', {});
 	},
 	add_item: function(req, res, next) {
-		res.render('items/add', {});
+		var ItemModel = mongoose.model('Item');
+
+		if(req.method.toLowerCase() === 'post') {
+			var item = new ItemModel(req.body);
+				item.save(function(err){
+					if(err) {
+						res.render('items/add', {
+							error: errorHelper(err, next)
+						});
+					}
+				});
+		} else {
+			res.render('items/add', {});
+		}
 	}
 };
 

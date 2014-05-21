@@ -13,8 +13,17 @@
     {{{block "pageStyles"}}}
   </head>
   <body>
-    {{{body}}}
+    {{> header}}
+    {{> sidebar}}
+    <div class="main-container">
+      <div class="container-fluid">
+        {{> flash}}
+        {{{body}}}
+      </div>
+    </div>
     
     {{> scripts}}
+
+    {{{block "customScript"}}}
   </body>
 </html>

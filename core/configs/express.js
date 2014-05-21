@@ -23,6 +23,11 @@ module.exports = function(app, config) {
 	app.set('view engine', 'hbs');
 	app.set('views', path.join(config.root, 'views'));
 
+	// Register view helper
+	hbs.registerHelper('join', function(list, separator) {
+		return new hbs.SafeString(list.join(separator));
+	});
+
 	app.set('view cache', false);
   	app.use(favicon());
   	app.use(bodyParser.json());
@@ -47,6 +52,17 @@ module.exports = function(app, config) {
 	app.use(function(req, res, next) {
 	    res.removeHeader("X-Powered-By");
 	    next();
+  	});
+
+  	app.use(function(req, res, next){
+  		app.locals.flash = {
+  			flash_error: req.flash('error'),
+  			flash_info: req.flash('info'),
+  			flash_success: req.flash('success'),
+  			flash_warning: req.flash('warning')
+  		};
+
+  		next();
   	});
 
   	if(app.get('env') === 'dev') {

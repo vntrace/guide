@@ -36,6 +36,8 @@ BEGuide.prototype.start = function() {
 	config.passport(app, this.config);
 	// Config router
 	config.router(app, this.config);
+	// Config database
+	config.database(app, this.config);
 
 	app.listen(this.config.port, function(){
 		console.log('App start !!!');

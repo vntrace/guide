@@ -16,6 +16,7 @@
     , "redis": "0.10.2"
     , "connect-redis": "~2.0.0"
     , "mongoose": "3.8.9"
+    , "mongoose-error-helper": "*"
     , "when": "3.2.0"
     , "static-favicon": "~1.0.0"
     , "cookie-parser": "~1.0.1"

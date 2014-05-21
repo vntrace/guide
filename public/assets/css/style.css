@@ -382,6 +382,10 @@ a.m-stats-item:hover{
 	background-position: -90px -950px;
 }
 
+.flash-section {
+	margin-top: 15px;
+}
+
 @media (max-width: 768px){
 	.sidebar{
 		width: 100%;
