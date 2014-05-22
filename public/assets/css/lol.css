@@ -30,9 +30,10 @@ ul.lol-db li a {
 }
 
 ul.lol-db li a span.item-name {
-	height: 30px;
-	display: inline-block;
+	height: 35px;
+	display: block;
 	overflow: hidden;
+	font-size: 12px;
 }
 
 .editor {

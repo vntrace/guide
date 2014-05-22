@@ -9,53 +9,20 @@
 		<div class="span12">
 			<ul class="lol-db">
 				<li class="item">
-					<a href="#">
+					<a href="/items/add">
 						<img src="/assets/img/ico/ico-add.gif">
 						<span class="item-name">Thêm mới</span>
 					</a>
 				</li>
-				<li class="item">
-					<a href="#">
-						<img src="{{static_path}}/lol/items/may-quet-oracle_1387188138.gif">
-						<span class="item-name">Máy quét</span>
-						<span>450 <img src="{{static_path}}/lol/bp.png"></span>
-					</a>
-				</li>
-				<li class="item">
-					<a href="#">
-						<img src="{{static_path}}/lol/items/may-quet-oracle_1387188138.gif">
-						<span class="item-name">Máy quét</span>
-						<span>450 <img src="{{static_path}}/lol/bp.png"></span>
-					</a>
-				</li>
-				<li class="item">
-					<a href="#">
-						<img src="{{static_path}}/lol/items/may-quet-oracle_1387188138.gif">
-						<span class="item-name">Máy quét</span>
-						<span>450 <img src="{{static_path}}/lol/bp.png"></span>
-					</a>
-				</li>
-				<li class="item">
-					<a href="#">
-						<img src="{{static_path}}/lol/items/may-quet-oracle_1387188138.gif">
-						<span class="item-name">Máy quét</span>
-						<span>450 <img src="{{static_path}}/lol/bp.png"></span>
-					</a>
-				</li>
-				<li class="item">
-					<a href="#">
-						<img src="{{static_path}}/lol/items/may-quet-oracle_1387188138.gif">
-						<span class="item-name">Máy quét</span>
-						<span>450 <img src="{{static_path}}/lol/bp.png"></span>
-					</a>
-				</li>
-				<li class="item">
-					<a href="#">
-						<img src="{{static_path}}/lol/items/may-quet-oracle_1387188138.gif">
-						<span class="item-name">Máy quét</span>
-						<span>450 <img src="{{static_path}}/lol/bp.png"></span>
-					</a>
-				</li>
+				{{#each items}}
+					<li class="item">
+						<a href="#">
+							<img src="{{../static_path}}/lol/items/{{image_url}}">
+							<span class="item-name">{{name}}</span>
+							<span>{{total_price}} <img src="{{../static_path}}/lol/bp.png"></span>
+						</a>
+					</li>
+			    {{/each}}
 			</ul>
 		</div>
 	</div>

@@ -10,10 +10,10 @@
 		</div>
 		{{/if}}
 	</div>
-	<form class="form-horizontal" enctype="multipart/form-data" action="" method="post">
+	<form class="form-horizontal" action="" method="post">
 		<fieldset>
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span12">
 					<legend>Thêm trang bị mới</legend>
 					<div class="control-group">
 						<label class="control-label">Tên trang bị</label>
@@ -26,21 +26,24 @@
 					<div class="control-group">
 						<label class="control-label">Chọn ảnh</label>
 						<div class="controls">
-							<input type="file" name="image_url" id="item_thumb"/>
+							<input type="file" name="item_thumb" id="item_thumb"/>
 							<input type="hidden" name="image_url" />
+							<br/>
+							<a href="#" class="upload_result">
+							</a>
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label">Tổng giá</label>
 						<div class="controls">
-							<input type="text" class="input-small" name="total_price">
+							<input type="text" value="0" class="input-small" name="total_price">
 						</div>
 					</div>
 
 					<div class="control-group">
 						<label class="control-label">Giá công thức</label>
 						<div class="controls">
-							<input type="text" class="input-small" name="recipe_price">
+							<input type="text" value="0" class="input-small" name="recipe_price">
 						</div>
 					</div>
 
@@ -49,13 +52,6 @@
 						<div class="controls">
 							<textarea id="description" class="editor" name="description"></textarea>
 						</div>
-					</div>
-				</div>
-				<div class="span6">
-					<div class="thumb_image">
-						<a href="#">
-							<img src="/static/lol/items/agger_1385955237.gif"/>
-						</a>
 					</div>
 				</div>
 			</div>
@@ -75,7 +71,15 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#item_thumb').fileupload({
-			url: '/upload'
+			url: '/upload',
+			done: function(e, data) {
+				if(!data.result.status) {
+					return alert('Upload failed !');
+				}
+
+				$('input[name=image_url]').val(data.result.fileName[0]);
+				$('.upload_result').html($('<img/>').attr('src', '/static/lol/items/' + data.result.fileName[0]));
+			}
 		});
 	});
 </script>
