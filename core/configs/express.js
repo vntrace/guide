@@ -28,6 +28,10 @@ module.exports = function(app, config) {
 		return new hbs.SafeString(list.join(separator));
 	});
 
+	hbs.registerHelper('toString', function(object){
+		return JSON.stringify(object);
+	});
+
 	app.set('view cache', false);
   	app.use(favicon());
   	app.use(bodyParser.json());

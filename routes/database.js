@@ -17,8 +17,9 @@ var routers = {
 				 });
 	},
 	add_item: function(req, res, next) {
+		var ItemModel = mongoose.model('Item');
+
 		if(req.method.toLowerCase() === 'post') {
-			var ItemModel = mongoose.model('Item');
 			var item = new ItemModel(req.body);
 				item.save(function(err){
 					if(err) {
@@ -30,7 +31,14 @@ var routers = {
 					res.redirect('/items');
 				});
 		} else {
-			res.render('items/add', {});
+			ItemModel.getAll()
+					 .then(function(items){
+						res.render('items/add', {
+							items: items
+						});
+					 }, function(){
+					 	res.status(500);
+					 });	
 		}
 	}
 };

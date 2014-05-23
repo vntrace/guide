@@ -39,3 +39,36 @@ ul.lol-db li a span.item-name {
 .editor {
 	width: 50%;
 }
+
+ul.item-recipe-list,
+ul.item-recipe-list li {
+	list-style: none;
+	list-style-type: none;
+}
+
+ul.item-recipe-list li {
+	float: left;
+	display: relative;
+	border: 1px solid #ccc;
+	margin-right: 5px;
+}
+
+ul.hide-list-item,
+ul.hide-list-item li {
+	list-style: none;
+	list-style-type: none;
+}
+
+.hide-list-item li {
+	/*display: none;*/
+	float: left;
+	padding: 3px;
+	border: 1px solid #ccc;
+	margin-right: 5px;
+}
+
+.list {
+	list-style: none;
+}
+
+.guide-list
